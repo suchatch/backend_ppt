@@ -5,7 +5,6 @@ const { errorHandler } = require('./middleware/errorMiddleware')
 require("dotenv").config();
 const app = express();
 
-const authRoute = require('./routes/authRoute')
 const productRoute = require("./routes/productRoute");
 
 //middleware
@@ -15,10 +14,9 @@ app.use(cors());
 app.use(morgan("dev"));
 //route
 app.use("/api/product",productRoute)
-app.use('/api',authRoute)
 
 // ถ้า เกิด Error ให้แสดงเป็น Json
 app.use(errorHandler)
 
-const port = process.env.PORT || 5500;
+const port = process.env.PORT || 5502;
 app.listen(port, () => console.log(`start server in port ${port}`));

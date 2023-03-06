@@ -6,7 +6,7 @@ const storage = multer.diskStorage({
     callback(null, "./uploads");
   },
   filename: function (req, file, callback) {
-    callback(null, file.originalname);
+    callback(null, file.originalname)
   },
 });
 const upload = multer({ storage, limits: { fileSize: 3000 * 2000 } });
@@ -17,6 +17,7 @@ const {
   updateProduct,
   deleteProduct,
   uploadFiles,
+  getPicture
 } = require("../controllers/productController");
 
 router
@@ -24,6 +25,7 @@ router
   .get(getAllProduct)
   .post(upload.array("files"), createNewProduct);
 
+router.get("/showPicture/:file", getPicture)
 router.get("/:product_id", getOneProduct);
 router.put("/:product_id", updateProduct);
 router.delete("/:product_id", deleteProduct);

@@ -5,7 +5,10 @@ module.exports = {
   PASSWORD: process.env.DB_PASS,
   DB: process.env.DB_DATABASE,
   dialect: "mysql",
-
+  // dialectOptions: {
+  //   socketPath: "/Applications/MAMP/tmp/mysql/mysql.sock",
+  // }
+  // ,
   pool: {
     max: 300,
     min: 0,
